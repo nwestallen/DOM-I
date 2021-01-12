@@ -9,7 +9,7 @@ const siteContent = {
     "img-src": "img/logo.png"
   },
   "cta": {
-    "h1": "DOM Is Awesome",
+    "h1": "DOM <br> Is <br> Awesome",
     "button": "Get Started",
     "img-src": "img/header-img.png"
   },
@@ -28,7 +28,7 @@ const siteContent = {
   },
   "contact": {
     "contact-h4" : "Contact",
-    "address" : "123 Way 456 Street Somewhere, USA",
+    "address" : "123 Way 456 Street <br> Somewhere, USA",
     "phone" : "1 (888) 888-8888",
     "email" : "sales@greatidea.io",
   },
@@ -50,7 +50,7 @@ links[4].textContent = siteContent["nav"]["nav-item-5"];
 links[5].textContent = siteContent["nav"]["nav-item-6"];
 
 let h1 = document.querySelector('h1');
-h1.textContent = siteContent["cta"]["h1"];
+h1.innerHTML = siteContent["cta"]["h1"];
 
 let button = document.querySelector('button');
 button.textContent = siteContent["cta"]["button"];
@@ -76,9 +76,21 @@ bottomContent[2].querySelector('p').textContent = siteContent["main-content"]["v
 
 document.querySelector('.contact h4').textContent = siteContent["contact"]["contact-h4"];
 let contactLines = document.querySelectorAll('.contact p');
-contactLines[0].textContent = siteContent["contact"]["address"];
+contactLines[0].innerHTML = siteContent["contact"]["address"];
 contactLines[1].textContent = siteContent["contact"]["phone"];
 contactLines[2].textContent = siteContent["contact"]["email"];
 
 let footer = document.querySelector('footer');
 footer.querySelector('p').textContent = siteContent["footer"]["copyright"];
+
+links.forEach(link => link.style.color = 'green');
+
+let linkBegin = document.createElement("a");
+linkBegin.textContent = 'Beginning';
+linkBegin.style.color = 'green';
+document.querySelector('nav').prepend(linkBegin);
+
+let linkEnd = document.createElement("a");
+linkEnd.textContent = 'End';
+linkEnd.style.color = 'green';
+document.querySelector('nav').appendChild(linkEnd);
